@@ -82,7 +82,7 @@ int main()
     cout << ("Enter second number -> ");
     cin >> b;
 
-    // Calling Karatsuba's Fast Multiplication function
+    // Karatsuba's Fast Multiplication function
     cout << ("Result = ");
     cout << KaratsubasFM(a, b) << endl;
 
