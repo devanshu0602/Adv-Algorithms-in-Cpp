@@ -34,7 +34,7 @@ double Knapsack(double capacity, int n, double weight[], double profit[])
 
     double maxProfit = 0;
     int k;
-    // Maximum Profit = p1*q1 + p2*q2 + ... + pn*qn
+    // Maximum Profit = p1*q1 + p2*q2 + .... + pn*qn
     for (k = 0; k < n; k++)
     {
         maxProfit = maxProfit + (profit[k] * quantity[k]);
