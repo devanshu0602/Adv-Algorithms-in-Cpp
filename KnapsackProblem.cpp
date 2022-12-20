@@ -53,23 +53,21 @@ int main()
     cin >> capacity;
 
     // Input the weight and profit of each object
-    int i, j;
     double weight[noOfObj], profit[noOfObj];
     cout << ("Enter the weight of each object:") << endl;
-    for (i = 0; i < noOfObj; i++)
+    for (int i = 0; i < noOfObj; i++)
     {
         cin >> weight[i];
     }
     cout << ("Enter the profit of each object:") << endl;
-    for (j = 0; j < noOfObj; j++)
+    for (int j = 0; j < noOfObj; j++)
     {
         cin >> profit[j];
     }
 
     // Calculating density
-    int k;
     double density[noOfObj];
-    for (k = 0; k < noOfObj; k++)
+    for (int k = 0; k < noOfObj; k++)
     {
         // density = profit / weight
         density[k] = profit[k] / weight[k];
@@ -77,9 +75,9 @@ int main()
 
     // Sorting the density - using INSERTION SORT (Ascending order)
     // And rearranging weights and profits
-    int q, r;
     double checkerD, initialP, initialW;
-    for (q = 1; q < noOfObj; q++)
+    int r;
+    for (int q = 1; q < noOfObj; q++)
     {
         checkerD = density[q];
         initialP = profit[q];
@@ -114,6 +112,7 @@ int main()
     double maxProfit;
     maxProfit = Knapsack(capacity, noOfObj, weight, profit);
     // Final Answer
+    cout << ("") << endl;
     cout << ("Maximum Profit = ");
     cout << maxProfit << endl;
 
