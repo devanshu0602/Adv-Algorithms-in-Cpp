@@ -12,23 +12,30 @@ void inputSet(int n, double set[])
 void Sort(int n, double density[], double profit[], double weight[])
 {
     double checker;
-    for (int q = 1; q < n; q++)
+    for (int i = 1; i < n; i++)
     {
-        checker = density[q];
-        int r = q - 1;
-
-        while (r >= 0 && density[r] <= checker)
+        checker = density[i];
+        int j = i - 1;
+        while (j >= 0 && density[j] <= checker)
         {
-            density[r + 1] = density[r];
-            swap(profit[r], profit[r + 1]);
-            swap(weight[r], weight[r + 1]);
-            r--;
+            density[j + 1] = density[j];
+            swap(profit[j], profit[j + 1]);
+            swap(weight[j], weight[j + 1]);
+            j--;
         }
-        density[r + 1] = checker;
+        density[j + 1] = checker;
     }
 }
 
-double KnapsackProb(int n, double capacity, double weight[], double profit[])
+void calcDensity(int n, double density[], double profit[], double weight[])
+{
+    for (int i = 0; i < n; i++)
+    {
+        density[i] = profit[i] / weight[i];
+    }
+}
+
+double KnapsackProb(int n, int capacity, double profit[], double weight[])
 {
     double quantity[n];
     for (int i = 0; i < n; i++)
@@ -69,7 +76,7 @@ double KnapsackProb(int n, double capacity, double weight[], double profit[])
 
 int main()
 {
-    // Input no. of Objects and the capacity
+    // Input no. of objects and the capacity
     int noOfObj, capacity;
     cout << ("Enter the no. of Objects -> ");
     cin >> noOfObj;
@@ -83,27 +90,18 @@ int main()
     cout << ("Enter the profit of each object:") << endl;
     inputSet(noOfObj, profit);
 
-    // Calculating density
+    // Calculating density (density = profit/weight)
     double density[noOfObj];
-    for (int k = 0; k < noOfObj; k++)
-    {
-        // density = profit / weight
-        density[k] = profit[k] / weight[k];
-    }
+    calcDensity(noOfObj, density, profit, weight);
 
     // Sorting the density - using INSERTION SORT (Descending order)
     // And rearranging weights and profits
     Sort(noOfObj, density, profit, weight);
 
-    // Knapsack's Problem - Greedy Technique
-    double maxProfit;
-    maxProfit = KnapsackProb(noOfObj, capacity, weight, profit);
-
     // Final Answer
-    cout << ("\nMaximum Profit = ");
-    cout << maxProfit << endl;
+    printf("\nMaximum Profit = %.2lf", KnapsackProb(noOfObj, capacity, profit, weight));
 
     // Footer
-    cout << ("\nDevanshu Gupta [21BCE0597]") << endl;
+    cout << ("\nDevanshu Gupta [21BCE0597]\n") << endl;
     return 0;
 }
