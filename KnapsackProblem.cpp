@@ -1,6 +1,10 @@
 #include <iostream>
 using namespace std;
 
+void Inputs(int n, int capacity) {
+    
+}
+
 void inputSet(int n, double set[])
 {
     for (int i = 0; i < n; i++)
@@ -35,6 +39,17 @@ void calcDensity(int n, double density[], double profit[], double weight[])
     }
 }
 
+double maxProfit(int n, double profit[], double quantity[])
+{
+    double maxProfit = 0;
+    // Maximum Profit = p1*q1 + p2*q2 + .... + pn*qn
+    for (int i = 0; i < n; i++)
+    {
+        maxProfit = maxProfit + (profit[i] * quantity[i]);
+    }
+    return maxProfit;
+}
+
 double KnapsackProb(int n, int capacity, double profit[], double weight[])
 {
     double quantity[n];
@@ -42,9 +57,7 @@ double KnapsackProb(int n, int capacity, double profit[], double weight[])
     {
         quantity[i] = 0;
     }
-
     double u = capacity;
-
     int j;
     for (j = 0; j < n; j++)
     {
@@ -64,14 +77,7 @@ double KnapsackProb(int n, int capacity, double profit[], double weight[])
         u = u - (weight[j] * quantity[j]);
     }
 
-    double maxProfit = 0;
-    // Maximum Profit = p1*q1 + p2*q2 + .... + pn*qn
-    for (int k = 0; k < n; k++)
-    {
-        maxProfit = maxProfit + (profit[k] * quantity[k]);
-    }
-
-    return maxProfit;
+    return maxProfit(n, profit, quantity);
 }
 
 int main()
