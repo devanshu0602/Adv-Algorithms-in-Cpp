@@ -1,10 +1,6 @@
 #include <iostream>
 using namespace std;
 
-void Inputs(int n, int capacity) {
-    
-}
-
 void inputSet(int n, double set[])
 {
     for (int i = 0; i < n; i++)
@@ -84,7 +80,7 @@ int main()
 {
     // Input no. of objects and the capacity
     int noOfObj, capacity;
-    cout << ("Enter the no. of Objects -> ");
+    cout << ("\nEnter the no. of Objects -> ");
     cin >> noOfObj;
     cout << ("Enter the capacity -> ");
     cin >> capacity;
@@ -105,9 +101,10 @@ int main()
     Sort(noOfObj, density, profit, weight);
 
     // Final Answer
-    printf("\nMaximum Profit = %.2lf", KnapsackProb(noOfObj, capacity, profit, weight));
+    double maxProfit = KnapsackProb(noOfObj, capacity, profit, weight);
+    printf("\nMaximum Profit = %.2lf", maxProfit);
 
     // Footer
-    cout << ("\nDevanshu Gupta [21BCE0597]\n") << endl;
+    cout << ("\n\nDevanshu Gupta [21BCE0597]\n") << endl;
     return 0;
 }
