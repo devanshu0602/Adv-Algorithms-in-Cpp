@@ -22,6 +22,8 @@ void printArray(int *array, int n)
     solnCounter++;
 }
 
+/* Returns True if row 'k' and column 'i'
+have a Queen, else returns False. */
 bool Place(int k, int i)
 {
     for (int j = 1; j <= k - 1; j++)
