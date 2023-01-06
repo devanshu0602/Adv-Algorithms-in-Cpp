@@ -61,9 +61,9 @@ int main()
     cout << ("\nEnter number of Queens -> ");
     cin >> N;
 
-    // All possible solutions
+    // All possible solutions using BACKTRACKING
     cout << ("\nSolutions:") << endl;
-    nQueens(1, N); // use of Backtracking
+    nQueens(1, N);
     printf("\nThere are %d possible solutions.", solnCounter);
 
     // Footer
