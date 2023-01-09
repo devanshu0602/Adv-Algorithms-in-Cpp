@@ -96,7 +96,7 @@ int main()
     }
 
     // Print chromatic number
-    printf("\nChromatic number = %d", m-1);
+    printf("\nChromatic number = %d", m - 1);
 
     // Footer
     cout << ("\n\nDevanshu Gupta [21BCE0597]\n") << endl;
