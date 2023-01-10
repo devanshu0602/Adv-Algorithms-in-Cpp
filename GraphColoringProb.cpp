@@ -1,10 +1,12 @@
 #include <iostream>
 using namespace std;
 
-static int noOfVertices, m;
-static int count = 0, checker = 0;
-int graph[10][10];
-int X[10];
+static int v; // v = no. of vertices
+static int m; // m = chromatic number
+static int count = 0;
+bool checker = false;
+int graph[20][20];
+int X[20];
 
 void nextValue(int k)
 {
@@ -19,17 +21,16 @@ void nextValue(int k)
             return;
         }
 
-        for (j = 1; j <= noOfVertices; j++)
+        for (j = 1; j <= v; j++)
         {
-            if (graph[k][j] == 1 && X[k] == X[j])
+            if ((graph[k][j] == 1) && (X[k] == X[j]))
             {
-                break;
-                // due to adjacency with same color
+                break; // due to adjacency with same color
             }
         }
 
         // check if previous loop was completed or broken
-        if (j == (noOfVertices + 1))
+        if (j == (v + 1))
         {
             return;
         }
@@ -48,10 +49,8 @@ void graphColoring(int k)
 
         if (k == noOfVertices)
         {
-            checker = 1;
-
-            // increment min. colors required
-            count++;
+            checker = true;
+            count++; // increment min. colors required
         }
         else
         {
@@ -64,31 +63,22 @@ int main()
 {
     // Input the no. of Vertices
     cout << ("\nEnter no. of Vertices -> ");
-    cin >> noOfVertices;
+    cin >> v;
 
-    // Input the Edges
-    cout << ("\nEnter 1 if edge is present. Else enter 0.") << endl;
-    for (int i = 1; i <= noOfVertices; i++)
+    // Adjacency Matrix
+    cout << ("\nEnter the Adjacency matrix.") << endl;
+    for (int i = 1; i <= v; i++)
     {
-        for (int j = 1; j <= noOfVertices; j++)
+        for (int j = 1; j <= v; j++)
         {
-            // Avoiding self loops
-            if (i == j)
-            {
-                graph[i][j] = 0;
-            }
-            else
-            {
-                printf("Between V[%d] & V[%d]: ", i, j);
-                cin >> graph[i][j];
-            }
+            cin >> graph[i][j];
         }
     }
 
     // Check possibilities of coloring
-    for (m = 1; m <= noOfVertices; m++)
+    for (m = 1; m <= v; m++)
     {
-        if (checker == 1)
+        if (checker)
         {
             break;
         }
