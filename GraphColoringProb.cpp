@@ -3,7 +3,6 @@ using namespace std;
 
 static int v; // v = no. of vertices
 static int m; // m = chromatic number
-static int count = 0;
 bool checker = false;
 int graph[20][20];
 int X[20];
@@ -11,7 +10,7 @@ int X[20];
 void nextValue(int k)
 {
     int j;
-    while (1)
+    while (true)
     {
         X[k] = (X[k] + 1) % (m + 1); // next highest node
 
@@ -39,7 +38,7 @@ void nextValue(int k)
 
 void graphColoring(int k)
 {
-    while (1)
+    while (true)
     {
         nextValue(k);
         if (X[k] == 0)
@@ -47,10 +46,9 @@ void graphColoring(int k)
             return;
         }
 
-        if (k == noOfVertices)
+        if (k == v)
         {
             checker = true;
-            count++; // increment min. colors required
         }
         else
         {
