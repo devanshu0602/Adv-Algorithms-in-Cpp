@@ -103,7 +103,7 @@ double knapsack(int n, double currentProfit, double currentWeight, int item, dou
 
         if (currentWeight + Weight[item] <= capacity)
         {
-            if ((UB_withItem < UB_withoutItem) || (UB_withItem == UB_withoutItem && LB_withItem < LB_withoutItem))
+            if ((LB_withItem < LB_withoutItem) || (LB_withItem == LB_withoutItem && UB_withItem < UB_withoutItem))
             {
                 itemSelection[item] = 1;
                 cout << "Item " << item + 1 << " is selected." << endl;
