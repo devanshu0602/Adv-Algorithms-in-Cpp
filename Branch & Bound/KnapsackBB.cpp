@@ -181,7 +181,7 @@ int main()
     // Printing Maximum Profit
     cout << "Maximum Profit = " << maxProfit << endl;
 
-    // Footer
+
     cout << ("\nDevanshu Gupta 21BCE0597\n") << endl;
     return 0;
 }
