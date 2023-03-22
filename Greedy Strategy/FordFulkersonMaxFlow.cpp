@@ -188,7 +188,7 @@ void FordFulkerson(int verticesCount)
     }
 
     // Finding Maximum flow
-    cout << "Adding flows of all Augemented paths, gives the maximum flow." << endl;
+    cout << "Adding flows of all Augmented paths, gives the maximum flow." << endl;
     cout << "Maximum Flow = " << maxFlow << endl;
 }
 
