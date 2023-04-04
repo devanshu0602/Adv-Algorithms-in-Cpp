@@ -27,8 +27,7 @@ int main()
     KMPMatcher(text, pattern);
     cout << endl;
 
-    cout << "Devanshu Gupta 21BCE0597\n"
-         << endl;
+    cout << "Devanshu Gupta 21BCE0597\n" << endl;
     return 0;
 }
 
@@ -48,7 +47,6 @@ void NaiveStringMatcher(string text, string pattern)
                 break;
             }
         }
-
         if (index == pLength)
         {
             cout << "=> Pattern occurs with shift = " << shift << endl;
@@ -70,12 +68,10 @@ int *ComputePrefixFunction(string pattern, int pLength)
         {
             k = piTable[k - 1];
         }
-
         if (pattern[k] == pattern[q])
         {
             k = k + 1;
         }
-
         piTable[q] = k;
     }
 
